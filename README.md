@@ -2,7 +2,7 @@
 Maps several constants codes into VFP public objects for simplicity usage in life cycle of yours Apps.
 
 Usage:
-
+```
 *-- Declare the VFPConst.PRG file in any place of your MAIN.PRG file.
 SET PROCEDURE TO VFPConst.PRG ADDITIVE
 
@@ -39,6 +39,6 @@ IF (oHttp.ReadyState == HTTP.DONE)
   *-- Do some stuffs here
 ELSE
 ENDIF
-
+```
 
 
