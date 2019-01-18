@@ -1,10 +1,10 @@
-*------------------------------------------------------------------------------------------------------------------------------------------*
+*------------------------------------------------------------------------------------------------------------------------*
 *--@title:			KeyBoard Class
-*--@description:	Sustituye los valores correspondientes a las pulsaciones de teclas por constantes.
-*--@autor:			Irwin R. <rodriguez.irwin@gmail.com>
+*--@description:	Sustituye los valores correspondientes a las pulsaciones de teclas por constantes
+*--@autor:			Irwin R. <irwinrodriguez@adsecuador.com>
 *--@version:		SNV: 1.2.0
 *--@date:			2019-01-11
-*------------------------------------------------------------------------------------------------------------------------------------------*
+*------------------------------------------------------------------------------------------------------------------------*
 DEFINE CLASS KEYBOARD AS CUSTOM
 *-- Properties Lists
 	VK_F1_ALONE							=	28
@@ -1541,13 +1541,13 @@ DEFINE CLASS KEYBOARD AS CUSTOM
 		RETURN .NULL.
 	ENDFUNC
 ENDDEFINE
-*------------------------------------------------------------------------------------------------------------------------------------------*
+*------------------------------------------------------------------------------------------------------------------------*
 *--@title:			LOGIC CLASS
 *--@description:	Clase para las constantes logicas.
-*--@autor:			Irwin R. <rodriguez.irwin@gmail.com>
+*--@autor:			Irwin R. <irwinrodriguez@adsecuador.com>
 *--@version:		SNV: 1.2.0
 *--@date:			2019-01-16
-*------------------------------------------------------------------------------------------------------------------------------------------*
+*------------------------------------------------------------------------------------------------------------------------*
 DEFINE CLASS LOGIC AS CUSTOM
 *-- Properties
 	TRUE	= .T.
@@ -1562,13 +1562,13 @@ DEFINE CLASS LOGIC AS CUSTOM
 	ENDFUNC
 ENDDEFINE
 
-*------------------------------------------------------------------------------------------------------------------------------------------*
+*------------------------------------------------------------------------------------------------------------------------*
 *--@title:			MSG CLASS
 *--@description:	Clase para las constantes relacionadas la función MESSAGEBOX().
-*--@autor:			Irwin R. <rodriguez.irwin@gmail.com>
+*--@autor:			Irwin R. <irwinrodriguez@adsecuador.com>
 *--@version:		SNV: 1.2.0
 *--@date:			2019-01-16
-*------------------------------------------------------------------------------------------------------------------------------------------*
+*------------------------------------------------------------------------------------------------------------------------*
 DEFINE CLASS MSG AS CUSTOM
 
 *-- Buttons
@@ -1666,13 +1666,13 @@ DEFINE CLASS MSG AS CUSTOM
 	ENDFUNC
 ENDDEFINE
 
-*------------------------------------------------------------------------------------------------------------------------------------------*
+*------------------------------------------------------------------------------------------------------------------------*
 *--@title:			HTTP CLASS
 *--@description:	Clase para las constantes releacionadas con las peticiones Http.
-*--@autor:			Irwin R. <rodriguez.irwin@gmail.com>
+*--@autor:			Irwin R. <irwinrodriguez@adsecuador.com>
 *--@version:		SNV: 1.2.0
 *--@date:			2019-01-16
-*------------------------------------------------------------------------------------------------------------------------------------------*
+*------------------------------------------------------------------------------------------------------------------------*
 DEFINE CLASS HTTP AS CUSTOM
 *-- Respuestas Afirmativas 	1xx
 	CONTINUE						= 100
@@ -2015,13 +2015,13 @@ DEFINE CLASS HTTP AS CUSTOM
 		RETURN .NULL.
 	ENDFUNC
 ENDDEFINE
-*------------------------------------------------------------------------------------------------------------------------------------------*
+*------------------------------------------------------------------------------------------------------------------------*
 *--@title:			UTILS CLASS
 *--@description:	Carga todas las constantes miscelaneas.
-*--@autor:			Irwin R. <rodriguez.irwin@gmail.com>
+*--@autor:			Irwin R. <irwinrodriguez@adsecuador.com>
 *--@version:		SNV: 1.2.0
 *--@date:			2019-01-17
-*------------------------------------------------------------------------------------------------------------------------------------------*
+*------------------------------------------------------------------------------------------------------------------------*
 DEFINE CLASS UTILS AS CUSTOM
 	CRLF 					= CHR(13)+CHR(10)
 	CR 						= CHR(13)
@@ -2041,20 +2041,20 @@ DEFINE CLASS UTILS AS CUSTOM
 		RETURN .NULL.
 	ENDFUNC
 ENDDEFINE
-*------------------------------------------------------------------------------------------------------------------------------------------*
+*------------------------------------------------------------------------------------------------------------------------*
 *--@title:			CONST CLASS
 *--@description:	Carga las constantes del sistema.
-*--@autor:			Irwin R. <rodriguez.irwin@gmail.com>
+*--@autor:			Irwin R. <irwinrodriguez@adsecuador.com>
 *--@version:		SNV: 1.2.0
 *--@date:			2019-01-16
-*------------------------------------------------------------------------------------------------------------------------------------------*
+*------------------------------------------------------------------------------------------------------------------------*
 DEFINE CLASS CONST AS CUSTOM
 
 *-- Properties as Object
 	KEYS		= .NULL.
 	LOGIC		= .NULL.
 	HTTP		= .NULL.
-	MSG			= .NULL.	
+	MSG			= .NULL.
 	UTILS		= .NULL.
 	
 *-- Load the keyboard constants
@@ -2066,13 +2066,168 @@ DEFINE CLASS CONST AS CUSTOM
 		THIS.UTILS	= CREATEOBJECT("UTILS")
 	ENDFUNC
 ENDDEFINE
-*------------------------------------------------------------------------------------------------------------------------------------------*
+*------------------------------------------------------------------------------------------------------------------------*
+*--@title:			CONST CLASS
+*--@description:	Carga las constantes del sistema.
+*--@autor:			Irwin R. <irwinrodriguez@adsecuador.com>
+*--@version:		SNV: 1.2.0
+*--@date:			2019-01-18
+*------------------------------------------------------------------------------------------------------------------------*
+DEFINE CLASS TYPES AS CUSTOM
+	BLOB		= "W"
+	CHAR 		= "C"
+	CHARACTER	= "C"
+	CURRENCY	= "Y"
+	DATE 		= "D"
+	DATETIME 	= "T"
+	DOUBLE 		= "B"
+	GENERAL 	= "G"
+	INT 		= "I"
+	INTEGER 	= "I"
+	INT16 		= "I"
+	INT32		= "I"
+	LOGICAL		= "L"
+	BOOL 		= "L"
+	BOOLEAN		= "L"
+	MEMO		= "M"
+	TEXT		= "M"
+	LONGTEXT	= "M"
+	NUM 		= "N"
+	NUMERIC		= "N"
+	NUMBER		= "N"
+	DECIMAL		= "N"
+	DOUBLE 		= "N"
+	FLOAT		= "F"
+	VARBINARY	= "Q"
+	VARCHAR		= "V"
+	UNKNOW		= "U"
+	NULL		= "X"
+	OBJECT 		= "O"
+
+	FUNCTION BLOB_ASSIGN
+		LPARAMETERS vNewVal
+		RETURN .NULL.
+	ENDFUNC			
+	FUNCTION CHAR_ASSIGN
+		LPARAMETERS vNewVal
+		RETURN .NULL.
+	ENDFUNC	 		
+	FUNCTION CHARACTER_ASSIGN
+		LPARAMETERS vNewVal
+		RETURN .NULL.
+	ENDFUNC		
+	FUNCTION CURRENCY_ASSIGN
+		LPARAMETERS vNewVal
+		RETURN .NULL.
+	ENDFUNC		
+	FUNCTION DATE_ASSIGN
+		LPARAMETERS vNewVal
+		RETURN .NULL.
+	ENDFUNC	 		
+	FUNCTION DATETIME_ASSIGN
+		LPARAMETERS vNewVal
+		RETURN .NULL.
+	ENDFUNC	 	
+	FUNCTION DOUBLE_ASSIGN
+		LPARAMETERS vNewVal
+		RETURN .NULL.
+	ENDFUNC	 		
+	FUNCTION GENERAL_ASSIGN
+		LPARAMETERS vNewVal
+		RETURN .NULL.
+	ENDFUNC	 	
+	FUNCTION INT_ASSIGN
+		LPARAMETERS vNewVal
+		RETURN .NULL.
+	ENDFUNC	 		
+	FUNCTION INTEGER_ASSIGN
+		LPARAMETERS vNewVal
+		RETURN .NULL.
+	ENDFUNC	 	
+	FUNCTION INT16_ASSIGN
+		LPARAMETERS vNewVal
+		RETURN .NULL.
+	ENDFUNC	 		
+	FUNCTION INT32_ASSIGN
+		LPARAMETERS vNewVal
+		RETURN .NULL.
+	ENDFUNC			
+	FUNCTION LOGICAL_ASSIGN
+		LPARAMETERS vNewVal
+		RETURN .NULL.
+	ENDFUNC			
+	FUNCTION BOOL_ASSIGN
+		LPARAMETERS vNewVal
+		RETURN .NULL.
+	ENDFUNC	 		
+	FUNCTION BOOLEAN_ASSIGN
+		LPARAMETERS vNewVal
+		RETURN .NULL.
+	ENDFUNC			
+	FUNCTION MEMO_ASSIGN
+		LPARAMETERS vNewVal
+		RETURN .NULL.
+	ENDFUNC			
+	FUNCTION TEXT_ASSIGN
+		LPARAMETERS vNewVal
+		RETURN .NULL.
+	ENDFUNC			
+	FUNCTION LONGTEXT_ASSIGN
+		LPARAMETERS vNewVal
+		RETURN .NULL.
+	ENDFUNC		
+	FUNCTION NUM_ASSIGN
+		LPARAMETERS vNewVal
+		RETURN .NULL.
+	ENDFUNC	 		
+	FUNCTION NUMERIC_ASSIGN
+		LPARAMETERS vNewVal
+		RETURN .NULL.
+	ENDFUNC			
+	FUNCTION NUMBER_ASSIGN
+		LPARAMETERS vNewVal
+		RETURN .NULL.
+	ENDFUNC			
+	FUNCTION DECIMAL_ASSIGN
+		LPARAMETERS vNewVal
+		RETURN .NULL.
+	ENDFUNC			
+	FUNCTION DOUBLE_ASSIGN
+		LPARAMETERS vNewVal
+		RETURN .NULL.
+	ENDFUNC	 		
+	FUNCTION FLOAT_ASSIGN
+		LPARAMETERS vNewVal
+		RETURN .NULL.
+	ENDFUNC			
+	FUNCTION VARBINARY_ASSIGN
+		LPARAMETERS vNewVal
+		RETURN .NULL.
+	ENDFUNC		
+	FUNCTION VARCHAR_ASSIGN
+		LPARAMETERS vNewVal
+		RETURN .NULL.
+	ENDFUNC			
+	FUNCTION UNKNOW_ASSIGN
+		LPARAMETERS vNewVal
+		RETURN .NULL.
+	ENDFUNC			
+	FUNCTION NULL_ASSIGN
+		LPARAMETERS vNewVal
+		RETURN .NULL.
+	ENDFUNC			
+	FUNCTION OBJECT_ASSIGN
+		LPARAMETERS vNewVal
+		RETURN .NULL.
+	ENDFUNC	 			
+ENDDEFINE
+*------------------------------------------------------------------------------------------------------------------------*
 *--@title:			LOAD_CONSTANTS
 *--@description:	Carga todas las constantes del sistema en variables publicas.
-*--@autor:			Irwin R. <rodriguez.irwin@gmail.com>
+*--@autor:			Irwin R. <irwinrodriguez@adsecuador.com>
 *--@version:		SNV: 1.2.0
 *--@date:			2019-01-16
-*------------------------------------------------------------------------------------------------------------------------------------------*
+*------------------------------------------------------------------------------------------------------------------------*
 PROCEDURE LOAD_CONSTANTS
 
 *-- Public CONST variable
@@ -2110,7 +2265,13 @@ PROCEDURE LOAD_CONSTANTS
 		PUBLIC UTILS AS OBJECT
 	ELSE &&TYPE("UTILS") = "U"
 	ENDIF &&TYPE("UTILS") = "U"
-	
+
+*-- Public TYPES variable
+	IF TYPE("TYPES") = "U"
+		PUBLIC TYPES AS OBJECT
+	ELSE &&TYPE("TYPES") = "U"
+	ENDIF &&TYPE("TYPES") = "U"
+
 	CONST = CREATEOBJECT("CONST")
 	*-- Alternative constant usage
 	KEYS 	= CONST.KEYS
@@ -2118,4 +2279,5 @@ PROCEDURE LOAD_CONSTANTS
 	HTTP	= CONST.HTTP
 	MSG		= CONST.MSG
 	UTILS	= CONST.UTILS
+	TYPES	= CONST.TYPES
 ENDPROC
