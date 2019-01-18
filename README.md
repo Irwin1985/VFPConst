@@ -39,6 +39,19 @@ IF (oHttp.ReadyState == HTTP.DONE)
   *-- Do some stuffs here
 ELSE
 ENDIF
+
+*-- For Fields and Data Types usage
+CREATE CURSOR qTest (PersonName C(50), PersonAge I, PersonImage W)
+DO CASE
+CASE qTest.PersonName = TYPES.CHARACTER
+  *--
+CASE qTest.PersonAge = TYPES.INT
+  *--
+CASE qTest.PersonImage = TYPES.BLOB
+  *--
+OTHERWISE
+ENDCASE
+  
 ```
 
 
