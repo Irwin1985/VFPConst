@@ -2054,9 +2054,9 @@ DEFINE CLASS CONST AS CUSTOM
 	KEYS		= .NULL.
 	LOGIC		= .NULL.
 	HTTP		= .NULL.
-	MSG			= .NULL.
+	MSG		= .NULL.
 	UTILS		= .NULL.
-	
+	TYPES		= .NULL.
 *-- Load the keyboard constants
 	FUNCTION INIT
 		THIS.KEYS 	= CREATEOBJECT("KEYBOARD")
@@ -2064,6 +2064,7 @@ DEFINE CLASS CONST AS CUSTOM
 		THIS.HTTP	= CREATEOBJECT("HTTP")
 		THIS.MSG	= CREATEOBJECT("MSG")
 		THIS.UTILS	= CREATEOBJECT("UTILS")
+		THIS.TYPES	= CREATEOBJECT("TYPES")
 	ENDFUNC
 ENDDEFINE
 *------------------------------------------------------------------------------------------------------------------------*
