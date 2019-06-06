@@ -2,7 +2,7 @@
 Maps several constants codes into VFP public objects for simplicity usage in life cycle of yours Apps.
 
 Usage:
-<pre>
+```xBase
 *!* Declare the VFPConst.PRG file in any place of your MAIN.PRG file.
 SET PROCEDURE TO VFPConst.PRG ADDITIVE
 
@@ -51,6 +51,6 @@ CASE qTest.PersonImage = TYPES.BLOB
  
 OTHERWISE
 ENDCASE
-</pre>
+```
 
 
