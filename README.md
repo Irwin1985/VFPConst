@@ -1,56 +1,51 @@
 ### VFPConst
 Maps several constants codes into VFP public objects for simplicity usage in life cycle of yours Apps.
 
-Usage:
+**Basic Usage:
+
 ```xBase
-*!* Declare the VFPConst.PRG file in any place of your MAIN.PRG file.
-SET PROCEDURE TO VFPConst.PRG ADDITIVE
+// Declare the VFPConst.prg file in any place of your Main prg file.
+Set Procedure To "VFPConst" Additive
 
-*!* Then Call the Load_Constants() method.
-=LOAD_CONSTANST()
+// Then Call the Load_Constants() function.
+=LoadConstants()
 
-*!* Now you can use all the Constants Public Objects declared inside the VFPConst.prg file.
+// Now you can use all the Constants Public Objects declared inside the VFPConst.prg file.
 
-*!* KeyPress Example
+// KeyPress Example
 
-*!* Try guess which keys were pressed?
-PROCEDURE AnyControl.KeyPress
-  LPARAMETERS nKeyCode, nShiftAltCtrl
-  DO CASE
-  CASE nKeyCode == KEYS.VK_INS_ALONE
-    *-- Do some stuffs here
-  CASE nKeyCode == KEYS.VK_DEL_ALONE
-    *-- Do another stuffs here.
-  OTHERWISE
-  ENDCASE
-ENDPROC
+// Try guess which keys were pressed?
+Procedure AnyControl.KeyPress
+  lParameters nKeyCode, nShiftAltCtrl
+  Do Case
+  Case nKeyCode == KEYS.VK_INS_ALONE
+    // Do some stuffs here
+  Case nKeyCode == KEYS.VK_DEL_ALONE
+    // Do another stuffs here.
+  OtherWise
+  EndCase
 
-*!* For more help using KeyPress control, press F1 for VFP INKEY() function Help.
+*====================================================================
 
-*!* For Boolean comparison
-IF (ISDIGIT("1") = LOGIC.TRUE)
-  *!* Some stuffs goes here.
-ELSE
-ENDIF
+// For more help using KeyPress control, press F1 for Vfp ```Inkey() function Help.
 
-*!* For http requests comparison
+// For Boolean comparison
+If (IsDigit("1") = LOGIC.TRUE)
+  // Some stuffs goes here.
+EndIf
 
-IF (oHttp.ReadyState == HTTP.DONE)
-  *!* Do some stuffs here
-ELSE
-ENDIF
+// For http requests comparison
 
-*!* For Fields and Data Types usage
+If (oHttp.ReadyState == HTTP.DONE)
+  // Do some stuffs here
+EndIf
+
+// For Fields and Data Types usage
 CREATE CURSOR qTest (PersonName C(50), PersonAge I, PersonImage W)
-DO CASE
-CASE qTest.PersonName = TYPES.CHARACTER
- 
-CASE qTest.PersonAge = TYPES.INT
- 
-CASE qTest.PersonImage = TYPES.BLOB
- 
-OTHERWISE
-ENDCASE
+Do Case
+Case qTest.PersonName  = TYPES.CHARACTER   
+Case qTest.PersonAge   = TYPES.INT
+Case qTest.PersonImage = TYPES.BLOB
+OtherWise
+EndCase
 ```
-
-
