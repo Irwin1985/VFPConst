@@ -1,12 +1,92 @@
-*------------------------------------------------------------------------------------------------------------------------*
-*--@title:			KeyBoard Class
-*--@description:	Sustituye los valores correspondientes a las pulsaciones de teclas por constantes
-*--@autor:			Irwin R. <irwinrodriguez@adsecuador.com>
-*--@version:		SNV: 1.2.0
-*--@date:			2019-01-11
-*------------------------------------------------------------------------------------------------------------------------*
-DEFINE CLASS KEYBOARD AS CUSTOM
-*-- Properties Lists
+*====================================================================
+* VFPConst
+*====================================================================
+Define Class Const As Custom
+	Keyboard	= .Null.
+	Logic		= .Null.
+	Http		= .Null.
+	Msg			= .Null.
+	Utils		= .Null.
+	Types		= .Null.
+	Hidden Internal
+	Procedure Init
+		With This
+			.Internal	= .T.
+			.Keyboard 	= Createobject("KeyBoard")
+			.Internal	= .T.
+			.Logic		= Createobject("Logic")
+			.Internal	= .T.
+			.Http		= Createobject("Http")
+			.Internal	= .T.
+			.Msg		= Createobject("Msg")
+			.Internal	= .T.
+			.Utils		= Createobject("Utils")
+			.Internal	= .T.
+			.Types		= Createobject("Types")
+		Endwith
+
+*====================================================================
+	Procedure KeyBoard_Assign(vNewVal)
+		If This.Internal
+			This.Internal = .F.
+			This.KeyBoard = m.vNewVal
+		Else
+			Return .Null.
+		EndIf	
+
+*====================================================================
+
+	Procedure Logic_Assign(vNewVal)
+		If This.Internal
+			This.Internal = .F.
+			This.Logic = m.vNewVal
+		Else
+			Return .Null.
+		EndIf	
+
+*====================================================================
+	Procedure Http_Assign(vNewVal)
+		If This.Internal
+			This.Internal = .F.
+			This.Http = m.vNewVal
+		Else
+			Return .Null.
+		EndIf	
+
+*====================================================================
+	Procedure Msg_Assign(vNewVal)
+		If This.Internal
+			This.Internal = .F.
+			This.Msg = m.vNewVal
+		Else
+			Return .Null.
+		EndIf	
+
+*====================================================================
+	Procedure Utils_Assign(vNewVal)
+		If This.Internal
+			This.Internal = .F.
+			This.Utils = m.vNewVal
+		Else
+			Return .Null.
+		EndIf	
+
+*====================================================================
+	Procedure Types_Assign(vNewVal)
+		If This.Internal
+			This.Internal = .F.
+			This.Types = m.vNewVal
+		Else
+			Return .Null.
+		EndIf	
+
+*====================================================================
+Enddefine
+
+*====================================================================
+* Helper Classes
+*====================================================================
+Define Class Keyboard As Custom
 	VK_F1_ALONE							=	28
 	VK_F1_SHIFT							=	84
 	VK_F1_CTRL							=	94
@@ -372,1204 +452,1194 @@ DEFINE CLASS KEYBOARD AS CUSTOM
 	VK_SLASH_OR_QUESTION_MARK_CTRL		=	0
 	VK_SLASH_OR_QUESTION_MARK_ALT		=	53
 
-	FUNCTION VK_F1_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F1_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F1_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F1_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F2_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F2_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F2_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F2_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F3_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F3_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F3_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F3_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F4_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F4_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F4_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F4_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F5_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F5_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F5_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F5_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F6_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F6_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F6_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F6_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F7_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F7_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F7_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F7_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F8_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F8_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F8_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F8_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F9_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F9_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F9_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F9_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F10_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F10_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F10_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F10_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F11_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F11_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F11_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F11_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F12_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F12_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F12_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F12_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_1_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_1_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_1_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_1_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_2_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_2_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_2_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_2_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_3_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_3_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_3_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_3_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_4_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_4_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_4_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_4_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_5_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_5_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_5_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_5_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_6_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_6_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_6_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_6_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_7_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_7_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_7_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_7_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_8_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_8_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_8_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_8_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_9_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_9_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_9_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_9_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_0_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_0_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_0_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_0_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_A_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_A_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_A_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_A_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_B_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_B_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_B_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_B_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_C_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_C_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_C_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_C_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_D_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_D_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_D_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_D_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_E_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_E_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_E_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_E_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_F_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_G_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_G_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_G_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_G_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_H_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_H_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_H_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_H_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_I_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_I_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_I_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_I_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_J_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_J_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_J_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_J_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_K_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_K_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_K_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_K_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_L_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_L_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_L_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_L_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_M_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_M_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_M_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_M_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_N_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_N_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_N_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_N_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_O_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_O_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_O_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_O_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_P_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_P_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_P_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_P_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_Q_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_Q_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_Q_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_Q_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_R_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_R_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_R_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_R_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_S_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_S_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_S_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_S_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_T_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_T_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_T_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_T_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_U_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_U_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_U_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_U_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_V_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_V_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_V_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_V_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_W_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_W_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_W_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_W_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_X_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_X_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_X_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_X_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_Y_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_Y_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_Y_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_Y_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_Z_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_Z_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_Z_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_Z_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_INS_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_INS_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_INS_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_INS_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_HOME_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_HOME_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_HOME_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_HOME_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_DEL_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_DEL_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_DEL_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_DEL_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_END_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_END_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_END_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_END_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_PAGE_UP_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_PAGE_UP_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_PAGE_UP_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_PAGE_UP_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_PAGE_DOWN_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_PAGE_DOWN_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_PAGE_DOWN_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_PAGE_DOWN_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_UP_ARROW_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_UP_ARROW_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_UP_ARROW_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_UP_ARROW_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_DOWN_ARROW_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_DOWN_ARROW_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_DOWN_ARROW_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_DOWN_ARROW_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_RIGHT_ARROW_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_RIGHT_ARROW_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_RIGHT_ARROW_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_RIGHT_ARROW_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_LEFT_ARROW_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_LEFT_ARROW_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_LEFT_ARROW_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_LEFT_ARROW_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_ESC_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_ESC_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_ESC_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_ESC_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_ENTER_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_ENTER_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_ENTER_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_ENTER_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_BACKSPACE_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_BACKSPACE_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_BACKSPACE_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_BACKSPACE_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_TAB_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_TAB_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_TAB_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_TAB_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_SPACEBAR_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_SPACEBAR_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_SPACEBAR_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_SPACEBAR_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_ACCENT_OR_NMARK_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_ACCENT_OR_NMARK_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_ACCENT_OR_NMARK_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_ACCENT_OR_NMARK_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_MIDDLE_LINE_OR_DOWN_LINE_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_MIDDLE_LINE_OR_DOWN_LINE_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_MIDDLE_LINE_OR_DOWN_LINE_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_MIDDLE_LINE_OR_DOWN_LINE_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_EQUAL_OR_PLUS_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_EQUAL_OR_PLUS_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_EQUAL_OR_PLUS_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_EQUAL_OR_PLUS_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_OPEN_BRACE_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_OPEN_BRACE_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_OPEN_BRACE_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_OPEN_BRACE_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_CLOSE_BRACE_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_CLOSE_BRACE_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_CLOSE_BRACE_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_CLOSE_BRACE_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_CLOSE_BRACE_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_CLOSE_BRACE_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_CLOSE_BRACE_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_CLOSE_BRACE_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_BACK_SLASH_OR_PIPELINE_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_BACK_SLASH_OR_PIPELINE_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_BACK_SLASH_OR_PIPELINE_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_BACK_SLASH_OR_PIPELINE_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_SEMICOLON_OR_DOUBLE_POINT_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_SEMICOLON_OR_DOUBLE_POINT_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_SEMICOLON_OR_DOUBLE_POINT_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_SEMICOLON_OR_DOUBLE_POINT_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_COMMA_OR_SMALLER_THAN_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_COMMA_OR_SMALLER_THAN_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_COMMA_OR_SMALLER_THAN_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_COMMA_OR_SMALLER_THAN_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_SLASH_OR_QUESTION_MARK_ALONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_SLASH_OR_QUESTION_MARK_SHIFT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_SLASH_OR_QUESTION_MARK_CTRL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VK_SLASH_OR_QUESTION_MARK_ALT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-ENDDEFINE
-*------------------------------------------------------------------------------------------------------------------------*
-*--@title:			LOGIC CLASS
-*--@description:	Clase para las constantes logicas.
-*--@autor:			Irwin R. <irwinrodriguez@adsecuador.com>
-*--@version:		SNV: 1.2.0
-*--@date:			2019-01-16
-*------------------------------------------------------------------------------------------------------------------------*
-DEFINE CLASS LOGIC AS CUSTOM
-*-- Properties
+	Procedure VK_F1_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+*====================================================================
+	Procedure VK_F1_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F1_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F1_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F2_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F2_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F2_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F2_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F3_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F3_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F3_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F3_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F4_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F4_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F4_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F4_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F5_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F5_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F5_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F5_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F6_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F6_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F6_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F6_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F7_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F7_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F7_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F7_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F8_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F8_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F8_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F8_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F9_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F9_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F9_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+	Procedure VK_F9_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F10_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F10_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F10_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F10_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F11_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F11_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F11_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F11_ALT_ASSIGN
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F12_ALONE_ASSIGN
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F12_SHIFT_ASSIGN
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F12_CTRL_ASSIGN
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F12_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_1_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_1_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_1_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_1_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_2_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_2_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_2_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_2_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_3_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_3_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_3_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_3_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_4_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_4_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_4_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_4_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_5_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_5_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_5_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_5_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_6_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_6_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_6_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_6_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_7_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_7_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_7_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_7_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_8_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_8_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_8_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_8_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_9_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_9_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_9_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_9_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_0_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_0_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_0_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_0_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_A_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_A_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_A_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_A_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_B_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_B_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_B_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_B_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_C_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_C_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_C_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_C_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_D_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_D_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_D_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_D_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_E_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_E_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_E_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_E_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_F_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_G_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_G_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_G_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_G_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_H_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_H_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_H_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_H_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_I_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_I_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_I_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_I_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_J_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_J_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_J_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_J_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_K_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_K_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_K_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_K_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_L_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_L_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_L_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_L_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_M_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_M_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_M_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_M_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_N_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_N_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_N_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_N_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_O_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_O_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_O_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_O_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_P_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_P_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_P_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_P_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_Q_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_Q_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_Q_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_Q_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_R_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_R_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_R_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_R_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_S_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_S_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_S_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_S_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_T_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_T_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_T_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_T_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_U_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_U_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_U_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_U_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_V_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_V_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_V_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_V_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_W_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_W_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_W_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_W_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_X_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_X_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_X_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_X_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_Y_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_Y_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_Y_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_Y_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_Z_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_Z_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_Z_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_Z_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_INS_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_INS_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_INS_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_INS_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_HOME_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_HOME_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_HOME_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_HOME_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_DEL_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_DEL_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_DEL_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_DEL_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_END_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_END_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_END_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_END_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_PAGE_UP_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_PAGE_UP_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_PAGE_UP_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_PAGE_UP_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_PAGE_DOWN_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_PAGE_DOWN_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_PAGE_DOWN_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_PAGE_DOWN_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_UP_ARROW_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_UP_ARROW_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_UP_ARROW_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_UP_ARROW_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_DOWN_ARROW_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_DOWN_ARROW_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_DOWN_ARROW_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_DOWN_ARROW_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_RIGHT_ARROW_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_RIGHT_ARROW_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_RIGHT_ARROW_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_RIGHT_ARROW_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_LEFT_ARROW_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_LEFT_ARROW_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_LEFT_ARROW_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_LEFT_ARROW_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_ESC_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_ESC_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_ESC_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_ESC_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_ENTER_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_ENTER_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_ENTER_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_ENTER_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_BACKSPACE_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_BACKSPACE_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_BACKSPACE_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_BACKSPACE_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_TAB_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_TAB_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_TAB_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_TAB_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_SPACEBAR_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_SPACEBAR_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_SPACEBAR_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_SPACEBAR_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_ACCENT_OR_NMARK_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_ACCENT_OR_NMARK_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_ACCENT_OR_NMARK_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_ACCENT_OR_NMARK_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_MIDDLE_LINE_OR_DOWN_LINE_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_MIDDLE_LINE_OR_DOWN_LINE_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_MIDDLE_LINE_OR_DOWN_LINE_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_MIDDLE_LINE_OR_DOWN_LINE_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_EQUAL_OR_PLUS_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_EQUAL_OR_PLUS_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_EQUAL_OR_PLUS_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_EQUAL_OR_PLUS_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_OPEN_BRACE_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_OPEN_BRACE_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_OPEN_BRACE_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_OPEN_BRACE_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_CLOSE_BRACE_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_CLOSE_BRACE_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_CLOSE_BRACE_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_CLOSE_BRACE_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_CLOSE_BRACE_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_CLOSE_BRACE_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_CLOSE_BRACE_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_CLOSE_BRACE_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_BACK_SLASH_OR_PIPELINE_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_BACK_SLASH_OR_PIPELINE_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_BACK_SLASH_OR_PIPELINE_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_BACK_SLASH_OR_PIPELINE_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_SEMICOLON_OR_DOUBLE_POINT_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_SEMICOLON_OR_DOUBLE_POINT_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_SEMICOLON_OR_DOUBLE_POINT_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_SEMICOLON_OR_DOUBLE_POINT_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_COMMA_OR_SMALLER_THAN_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_COMMA_OR_SMALLER_THAN_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_COMMA_OR_SMALLER_THAN_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_COMMA_OR_SMALLER_THAN_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_SLASH_OR_QUESTION_MARK_ALONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_SLASH_OR_QUESTION_MARK_SHIFT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_SLASH_OR_QUESTION_MARK_CTRL_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+	Procedure VK_SLASH_OR_QUESTION_MARK_ALT_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+Enddefine
+
+*====================================================================
+* Logic Helper Class
+*====================================================================
+Define Class Logic As Custom
 	TRUE	= .T.
 	FALSE	= .F.
-	FUNCTION TRUE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION FALSE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-ENDDEFINE
+	Procedure TRUE_ASSIGN(vNewVal)
+		Return .Null.
 
-*------------------------------------------------------------------------------------------------------------------------*
-*--@title:			MSG CLASS
-*--@description:	Clase para las constantes relacionadas la función MESSAGEBOX().
-*--@autor:			Irwin R. <irwinrodriguez@adsecuador.com>
-*--@version:		SNV: 1.2.0
-*--@date:			2019-01-16
-*------------------------------------------------------------------------------------------------------------------------*
-DEFINE CLASS MSG AS CUSTOM
+*====================================================================
+	Procedure FALSE_ASSIGN(vNewVal)
+		Return .Null.
+
+*====================================================================
+Enddefine
+
+*====================================================================
+* Msg Helper Class
+*====================================================================
+Define Class Msg As Custom
 
 *-- Buttons
 	OK_BUTTON					= 0
@@ -1588,94 +1658,89 @@ DEFINE CLASS MSG AS CUSTOM
 *-- Response
 	Result						= 0
 	OK							= 1
-	CANCEL						= 2
+	Cancel						= 2
 	ABORT						= 3
-	RETRY						= 4
-	IGNORE						= 5
+	Retry						= 4
+	Ignore						= 5
 	YES							= 6
 	NO							= 7
 
-*-- Protección de las constantes.
-	FUNCTION OK_BUTTON_ASSIGN
-		PARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION OK_CANCEL_BUTTONS_ASSIGN
-		PARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION ABORT_RETRY_IGNORE_BUTTONS_ASSIGN
-		PARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION YES_NO_CANCEL_BUTTONS_ASSIGN
-		PARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION YES_NO_BUTTONS_ASSIGN
-		PARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION RETRY_CANCEL_BUTTONS_ASSIGN
-		PARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION INFORMATION_ICON_ASSIGN
-		PARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION WARNING_ICON_ASSIGN
-		PARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION ERROR_ICON_ASSIGN
-		PARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION QUESTION_MARK_ASSIGN
-		PARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION OK_ASSIGN
-		PARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION CANCEL_ASSIGN
-		PARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION ABORT_ASSIGN
-		PARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION RETRY_ASSIGN
-		PARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION IGNORE_ASSIGN
-		PARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION YES_ASSIGN
-		PARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION NO_ASSIGN
-		PARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-ENDDEFINE
+	Procedure OK_BUTTON_ASSIGN(vNewVal)
+		Return .Null.
 
-*------------------------------------------------------------------------------------------------------------------------*
-*--@title:			HTTP CLASS
-*--@description:	Clase para las constantes releacionadas con las peticiones Http.
-*--@autor:			Irwin R. <irwinrodriguez@adsecuador.com>
-*--@version:		SNV: 1.2.0
-*--@date:			2019-01-16
-*------------------------------------------------------------------------------------------------------------------------*
-DEFINE CLASS HTTP AS CUSTOM
+*=====================================================================
+	Procedure OK_CANCEL_BUTTONS_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure ABORT_RETRY_IGNORE_BUTTONS_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure YES_NO_CANCEL_BUTTONS_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure YES_NO_BUTTONS_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure RETRY_CANCEL_BUTTONS_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure INFORMATION_ICON_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure WARNING_ICON_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure ERROR_ICON_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure QUESTION_MARK_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure OK_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure CANCEL_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure ABORT_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure RETRY_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure IGNORE_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure YES_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure NO_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+Enddefine
+
+*====================================================================
+* Http Helper Class
+*====================================================================
+Define Class Http As Custom
 *-- Respuestas Afirmativas 	1xx
-	CONTINUE						= 100
+	Continue						= 100
 	SWITCHING_PROTOCOLS				= 101
 	PROCESSING						= 102
 	CHECKPOINT						= 103
@@ -1694,7 +1759,7 @@ DEFINE CLASS HTTP AS CUSTOM
 *-- Redirecciones 3xx
 	MULTIPLE_CHOICE					= 300
 	MOVED_PERMANENTLY				= 301
-	FOUND							= 302
+	Found							= 302
 	SEE_OTHER						= 303
 	NOT_MODIFIED					= 304
 	USE_PROXY						= 305
@@ -1712,7 +1777,7 @@ DEFINE CLASS HTTP AS CUSTOM
 	NOT_ACCEPTABLE					= 406
 	PROXY_AUTHENTICATION_REQUIRED	= 407
 	REQUEST_TIMEOUT					= 408
-	CONFLICT						= 409
+	Conflict						= 409
 	GONE							= 410
 	LENGTH_REQUIRED					= 411
 	PRECONDITION_FAILED				= 412
@@ -1750,347 +1815,313 @@ DEFINE CLASS HTTP AS CUSTOM
 	VERSION_MISMATCH				= 521
 
 *-- Respuestas Afirmativas 	1xx
-	FUNCTION CONTINUE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION SWITCHING_PROTOCOLS_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION PROCESSING_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION CHECKPOINT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-*-- Peticiones Correctas	2xx
-	FUNCTION OK_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION CREATED_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION ACCEPTED_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION NON_AUTHORITATIVE_INFORMATION_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION NO_CONTENT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION RESET_CONTENT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION PARTIAL_CONTENT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION MULTI_STATUS_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION ALREADY_REPORTED_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-*-- Redirecciones 3xx
-	FUNCTION MULTIPLE_CHOICE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION MOVED_PERMANENTLY_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION FOUND_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION SEE_OTHER_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION NOT_MODIFIED_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION USE_PROXY_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION SWITCH_PROXY_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION TEMPORARY_REDIRECT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION PERMANENT_REDIRECT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-*-- Errores del Cliente 4xx
-	FUNCTION BAD_REQUEST_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION UNAUTHORIZED_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION PAYMENT_REQUIRED_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION FORBIDDEN_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION NOT_FOUND_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION METHOD_NOT_ALLOWED_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION NOT_ACCEPTABLE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION PROXY_AUTHENTICATION_REQUIRED_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION REQUEST_TIMEOUT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION CONFLICT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION GONE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION LENGTH_REQUIRED_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION PRECONDITION_FAILED_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION REQUEST_ENTITY_TOO_LARGE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION REQUEST_URI_TOO_LONG_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION UNSUPPORTED_MEDIA_TYPE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION REQUESTED_RANGE_NOT_ATISFIABLE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION EXPECTATION_FAILED_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION IM_A_TEAPOT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION UNPROCESSABLE_ENTITY_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION LOCKED_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION FAILED_DEPENDENCY_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION UNASSIGNED_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION UPGRADE_REQUIRED_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION PRECONDITION_REQUIRED_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION TOO_MANY_REQUESTS_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION REQUEST_HEADER_FIELDS_TOO_LARGE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION MICROSOFT_EXTENTION_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION UNAVAILABLE_FOR_LEGAL_REASONS_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-*-- Errores del servidor 5xx
-	FUNCTION INTERNAL_SERVER_ERROR_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION NOT_IMPLEMENTED_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION BAD_GATEWAY_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION SERVICE_UNAVAILABLE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION GATEWAY_TIMEOUT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION HTTP_VERSION_NOT_SUPPORTED_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VARIANT_ALSO_NEGOTIATES_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION INSUFFICIENT_STORAGE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION LOOP_DETECTED_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION BANDWIDTH_LIMIT_EXCEEDED_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION NOT_EXTENDED_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION NETWORK_AUTHENTICATION_REQUIRED_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION NOT_UPDATED_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-	FUNCTION VERSION_MISMATCH_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-ENDDEFINE
-*------------------------------------------------------------------------------------------------------------------------*
-*--@title:			UTILS CLASS
-*--@description:	Carga todas las constantes miscelaneas.
-*--@autor:			Irwin R. <irwinrodriguez@adsecuador.com>
-*--@version:		SNV: 1.2.0
-*--@date:			2019-01-17
-*------------------------------------------------------------------------------------------------------------------------*
-DEFINE CLASS UTILS AS CUSTOM
-	CRLF 					= CHR(13)+CHR(10)
-	CR 						= CHR(13)
-	AMPERSAND				= CHR(38)
-	
-	*-- Properties Protection
-	FUNCTION CRLF_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC	
-	FUNCTION CR_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC	
-	FUNCTION AMPERSAND_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC
-ENDDEFINE
-*------------------------------------------------------------------------------------------------------------------------*
-*--@title:			CONST CLASS
-*--@description:	Carga las constantes del sistema.
-*--@autor:			Irwin R. <irwinrodriguez@adsecuador.com>
-*--@version:		SNV: 1.2.0
-*--@date:			2019-01-16
-*------------------------------------------------------------------------------------------------------------------------*
-DEFINE CLASS CONST AS CUSTOM
+	Procedure CONTINUE_ASSIGN(vNewVal)
+		Return .Null.
 
-*-- Properties as Object
-	KEYS		= .NULL.
-	LOGIC		= .NULL.
-	HTTP		= .NULL.
-	MSG		= .NULL.
-	UTILS		= .NULL.
-	TYPES		= .NULL.
-*-- Load the keyboard constants
-	FUNCTION INIT
-		THIS.KEYS 	= CREATEOBJECT("KEYBOARD")
-		THIS.LOGIC	= CREATEOBJECT("LOGIC")
-		THIS.HTTP	= CREATEOBJECT("HTTP")
-		THIS.MSG	= CREATEOBJECT("MSG")
-		THIS.UTILS	= CREATEOBJECT("UTILS")
-		THIS.TYPES	= CREATEOBJECT("TYPES")
-	ENDFUNC
-ENDDEFINE
-*------------------------------------------------------------------------------------------------------------------------*
-*--@title:			CONST CLASS
-*--@description:	Carga las constantes del sistema.
-*--@autor:			Irwin R. <irwinrodriguez@adsecuador.com>
-*--@version:		SNV: 1.2.0
-*--@date:			2019-01-18
-*------------------------------------------------------------------------------------------------------------------------*
-DEFINE CLASS TYPES AS CUSTOM
-	BLOB		= "W"
-	CHAR 		= "C"
-	CHARACTER	= "C"
-	CURRENCY	= "Y"
-	DATE 		= "D"
-	DATETIME 	= "T"
-	DOUBLE 		= "B"
-	GENERAL 	= "G"
-	INT 		= "I"
-	INTEGER 	= "I"
+*=====================================================================
+	Procedure SWITCHING_PROTOCOLS_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure PROCESSING_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure CHECKPOINT_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+*-- Peticiones Correctas	2xx
+	Procedure OK_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure CREATED_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure ACCEPTED_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure NON_AUTHORITATIVE_INFORMATION_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure NO_CONTENT_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure RESET_CONTENT_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure PARTIAL_CONTENT_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure MULTI_STATUS_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure ALREADY_REPORTED_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+*-- Redirecciones 3xx
+	Procedure MULTIPLE_CHOICE_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure MOVED_PERMANENTLY_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure FOUND_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure SEE_OTHER_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure NOT_MODIFIED_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure USE_PROXY_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure SWITCH_PROXY_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure TEMPORARY_REDIRECT_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure PERMANENT_REDIRECT_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure BAD_REQUEST_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure UNAUTHORIZED_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure PAYMENT_REQUIRED_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure FORBIDDEN_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure NOT_FOUND_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure METHOD_NOT_ALLOWED_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure NOT_ACCEPTABLE_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure PROXY_AUTHENTICATION_REQUIRED_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure REQUEST_TIMEOUT_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure CONFLICT_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure GONE_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure LENGTH_REQUIRED_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure PRECONDITION_FAILED_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure REQUEST_ENTITY_TOO_LARGE_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure REQUEST_URI_TOO_LONG_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure UNSUPPORTED_MEDIA_TYPE_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure REQUESTED_RANGE_NOT_ATISFIABLE_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure EXPECTATION_FAILED_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure IM_A_TEAPOT_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure UNPROCESSABLE_ENTITY_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure LOCKED_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure FAILED_DEPENDENCY_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure UNASSIGNED_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure UPGRADE_REQUIRED_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure PRECONDITION_REQUIRED_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure TOO_MANY_REQUESTS_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure REQUEST_HEADER_FIELDS_TOO_LARGE_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure MICROSOFT_EXTENTION_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure UNAVAILABLE_FOR_LEGAL_REASONS_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure INTERNAL_SERVER_ERROR_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure NOT_IMPLEMENTED_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure BAD_GATEWAY_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure SERVICE_UNAVAILABLE_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure GATEWAY_TIMEOUT_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure HTTP_VERSION_NOT_SUPPORTED_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure VARIANT_ALSO_NEGOTIATES_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure INSUFFICIENT_STORAGE_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure LOOP_DETECTED_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure BANDWIDTH_LIMIT_EXCEEDED_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure NOT_EXTENDED_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure NETWORK_AUTHENTICATION_REQUIRED_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure NOT_UPDATED_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+	Procedure VERSION_MISMATCH_ASSIGN(vNewVal)
+		Return .Null.
+
+*=====================================================================
+Enddefine
+
+*====================================================================
+* Utils Helper Class
+*====================================================================
+Define Class Utils As Custom
+	CRLF 					= Chr(13)+Chr(10)
+	CR 						= Chr(13)
+	AMPERSAND				= Chr(38)
+
+*-- Properties Protection
+	Procedure CRLF_ASSIGN
+		Lparameters vNewVal
+		Return .Null.
+	Endfunc
+	Procedure CR_ASSIGN
+		Lparameters vNewVal
+		Return .Null.
+	Endfunc
+	Procedure AMPERSAND_ASSIGN
+		Lparameters vNewVal
+		Return .Null.
+	Endfunc
+Enddefine
+
+*====================================================================
+* Types Helper Class
+*====================================================================
+Define Class Types As Custom
+	Blob		= "W"
+	Char 		= "C"
+	Character	= "C"
+	Currency	= "Y"
+	Date 		= "D"
+	Datetime 	= "T"
+	Double 		= "B"
+	General 	= "G"
+	Int 		= "I"
+	Integer 	= "I"
 	INT16 		= "I"
 	INT32		= "I"
 	LOGICAL		= "L"
 	BOOL 		= "L"
 	BOOLEAN		= "L"
-	MEMO		= "M"
+	Memo		= "M"
 	TEXT		= "M"
 	LONGTEXT	= "M"
 	NUM 		= "N"
@@ -2105,180 +2136,120 @@ DEFINE CLASS TYPES AS CUSTOM
 	NULL		= "X"
 	OBJECT 		= "O"
 
-	FUNCTION BLOB_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC			
-	FUNCTION CHAR_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC	 		
-	FUNCTION CHARACTER_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC		
-	FUNCTION CURRENCY_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC		
-	FUNCTION DATE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC	 		
-	FUNCTION DATETIME_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC	 	
-	FUNCTION DOUBLE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC	 		
-	FUNCTION GENERAL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC	 	
-	FUNCTION INT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC	 		
-	FUNCTION INTEGER_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC	 	
-	FUNCTION INT16_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC	 		
-	FUNCTION INT32_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC			
-	FUNCTION LOGICAL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC			
-	FUNCTION BOOL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC	 		
-	FUNCTION BOOLEAN_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC			
-	FUNCTION MEMO_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC			
-	FUNCTION TEXT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC			
-	FUNCTION LONGTEXT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC		
-	FUNCTION NUM_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC	 		
-	FUNCTION NUMERIC_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC			
-	FUNCTION NUMBER_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC			
-	FUNCTION DECIMAL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC			
-	FUNCTION DOUBLE_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC	 		
-	FUNCTION FLOAT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC			
-	FUNCTION VARBINARY_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC		
-	FUNCTION VARCHAR_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC			
-	FUNCTION UNKNOW_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC			
-	FUNCTION NULL_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC			
-	FUNCTION OBJECT_ASSIGN
-		LPARAMETERS vNewVal
-		RETURN .NULL.
-	ENDFUNC	 			
-ENDDEFINE
-*------------------------------------------------------------------------------------------------------------------------*
-*--@title:			LOAD_CONSTANTS
-*--@description:	Carga todas las constantes del sistema en variables publicas.
-*--@autor:			Irwin R. <irwinrodriguez@adsecuador.com>
-*--@version:		SNV: 1.2.0
-*--@date:			2019-01-16
-*------------------------------------------------------------------------------------------------------------------------*
-PROCEDURE LOAD_CONSTANTS
+	Procedure BLOB_ASSIGN(vNewVal)
+		Return .NULL.
 
-*-- Public CONST variable
-	IF TYPE("CONST") = "U"
-		PUBLIC CONST AS OBJECT
-	ELSE &&TYPE("CONST") = "U"
-	ENDIF &&TYPE("CONST") = "U"
+	*=====================================================================
+	Procedure CHAR_ASSIGN(vNewVal)
+		Return .NULL.
 
-*-- Public KEYS variable
-	IF TYPE("KEYS") = "U"
-		PUBLIC KEYS AS OBJECT
-	ELSE &&TYPE("KEYS") = "U"
-	ENDIF &&TYPE("KEYS") = "U"
+	*=====================================================================
+	Procedure CHARACTER_ASSIGN(vNewVal)
+		Return .NULL.
 
-*-- Public LOGIC variable
-	IF TYPE("LOGIC") = "U"
-		PUBLIC LOGIC AS OBJECT
-	ELSE &&TYPE("LOGIC") = "U"
-	ENDIF &&TYPE("LOGIC") = "U"
+	*=====================================================================
+	Procedure CURRENCY_ASSIGN(vNewVal)
+		Return .NULL.
 
-*-- Public HTTP variable
-	IF TYPE("HTTP") = "U"
-		PUBLIC HTTP AS OBJECT
-	ELSE &&TYPE("HTTP") = "U"
-	ENDIF &&TYPE("HTTP") = "U"
+	*=====================================================================
+	Procedure DATE_ASSIGN(vNewVal)
+		Return .NULL.
 
-*-- Public MSG variable
-	IF TYPE("MSG") = "U"
-		PUBLIC MSG AS OBJECT
-	ELSE &&TYPE("MSG") = "U"
-	ENDIF &&TYPE("MSG") = "U"
+	*=====================================================================
+	Procedure DATETIME_ASSIGN(vNewVal)
+		Return .NULL.
 
-*-- Public UTILS variable
-	IF TYPE("UTILS") = "U"
-		PUBLIC UTILS AS OBJECT
-	ELSE &&TYPE("UTILS") = "U"
-	ENDIF &&TYPE("UTILS") = "U"
+	*=====================================================================
+	Procedure DOUBLE_ASSIGN(vNewVal)
+		Return .NULL.
 
-*-- Public TYPES variable
-	IF TYPE("TYPES") = "U"
-		PUBLIC TYPES AS OBJECT
-	ELSE &&TYPE("TYPES") = "U"
-	ENDIF &&TYPE("TYPES") = "U"
+	*=====================================================================
+	Procedure GENERAL_ASSIGN(vNewVal)
+		Return .NULL.
 
-	CONST = CREATEOBJECT("CONST")
-	*-- Alternative constant usage
-	KEYS 	= CONST.KEYS
-	LOGIC	= CONST.LOGIC
-	HTTP	= CONST.HTTP
-	MSG		= CONST.MSG
-	UTILS	= CONST.UTILS
-	TYPES	= CONST.TYPES
-ENDPROC
+	*=====================================================================
+	Procedure INT_ASSIGN(vNewVal)
+		Return .NULL.
+
+	*=====================================================================
+	Procedure INTEGER_ASSIGN(vNewVal)
+		Return .NULL.
+
+	*=====================================================================
+	Procedure INT16_ASSIGN(vNewVal)
+		Return .NULL.
+
+	*=====================================================================
+	Procedure INT32_ASSIGN(vNewVal)
+		Return .NULL.
+
+	*=====================================================================
+	Procedure LOGICAL_ASSIGN(vNewVal)
+		Return .NULL.
+
+	*=====================================================================
+	Procedure BOOL_ASSIGN(vNewVal)
+		Return .NULL.
+
+	*=====================================================================
+	Procedure BOOLEAN_ASSIGN(vNewVal)
+		Return .NULL.
+
+	*=====================================================================
+	Procedure MEMO_ASSIGN(vNewVal)
+		Return .NULL.
+
+	*=====================================================================
+	Procedure TEXT_ASSIGN(vNewVal)
+		Return .NULL.
+
+	*=====================================================================
+	Procedure LONGTEXT_ASSIGN(vNewVal)
+		Return .NULL.
+
+	*=====================================================================
+	Procedure NUM_ASSIGN(vNewVal)
+		Return .NULL.
+
+	*=====================================================================
+	Procedure NUMERIC_ASSIGN(vNewVal)
+		Return .NULL.
+
+	*=====================================================================
+	Procedure NUMBER_ASSIGN(vNewVal)
+		Return .NULL.
+
+	*=====================================================================
+	Procedure DECIMAL_ASSIGN(vNewVal)
+		Return .NULL.
+
+	*=====================================================================
+	Procedure DOUBLE_ASSIGN(vNewVal)
+		Return .NULL.
+
+	*=====================================================================
+	Procedure FLOAT_ASSIGN(vNewVal)
+		Return .NULL.
+
+	*=====================================================================
+	Procedure VARBINARY_ASSIGN(vNewVal)
+		Return .NULL.
+
+	*=====================================================================
+	Procedure VARCHAR_ASSIGN(vNewVal)
+		Return .NULL.
+
+	*=====================================================================
+	Procedure UNKNOW_ASSIGN(vNewVal)
+		Return .NULL.
+
+	*=====================================================================
+	Procedure NULL_ASSIGN(vNewVal)
+		Return .NULL.
+
+	*=====================================================================
+	Procedure OBJECT_ASSIGN(vNewVal)
+		Return .NULL.
+
+	*=====================================================================
+Enddefine
